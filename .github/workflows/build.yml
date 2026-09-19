@@ -1,0 +1,23 @@
+name: BEMless M120D Plus Windows build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-windows-x64:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+      - run: dotnet restore BEMless.csproj
+      - run: dotnet build BEMless.csproj -c Release --no-restore
+      - run: dotnet publish BEMless.csproj -c Release -r win-x64 --self-contained true --no-restore -o publish
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BEMless-M120D-Plus-Windows-x64
+          path: publish/
