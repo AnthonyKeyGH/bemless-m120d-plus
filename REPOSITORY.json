@@ -1,0 +1,6 @@
+{
+  "repository": "bemless-m120d-plus",
+  "display_name": "BEMless for ALSEYE M120D Plus",
+  "description": "A lightweight, headless Windows replacement for ALSEYE BEM Gen I on the ALSEYE M120D Plus.",
+  "topics": ["alseye","m120d-plus","bem","windows","cpu-temperature","hid","headless"]
+}
